@@ -3,7 +3,7 @@ package com.eureka.katas
 class Roman(decimal: Int) {
     companion object {
         private val symbolsMap = mapOf(
-        1000 to "M",
+                1000 to "M",
                 900 to "CM",
                 500 to "D",
                 400 to "CD",
@@ -22,7 +22,7 @@ class Roman(decimal: Int) {
 
     private fun convert(decimal: Int): String {
         symbolsMap.forEach { (arabic, symbol) ->
-            if (decimal>= arabic) {
+            if (decimal >= arabic) {
                 return symbol + convert(decimal - arabic)
             }
         }
