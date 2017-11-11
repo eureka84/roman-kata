@@ -1,37 +1,37 @@
 package com.eureka.katas
 
 class Roman(decimal: Int) {
+    companion object {
+        private val symbolsMap = mapOf(
+        1000 to "M",
+                900 to "CM",
+                500 to "D",
+                400 to "CD",
+                100 to "C",
+                90 to "XC",
+                50 to "L",
+                40 to "XL",
+                10 to "X",
+                9 to "IX",
+                5 to "V",
+                4 to "IV",
+                1 to "I")
+    }
 
-    private val symbolsMap = mapOf(
-            10 to "X",
-            5 to "V",
-            1 to "I")
+    private val value: String = convert(decimal)
 
-    private val value: String by lazy {
-        when (decimal) {
-            9 -> {
-                var roman = "I" + symbolsMap.get(decimal+1)
-
-                return@lazy roman
-            }
-            4 -> {
-                var roman = "I" + symbolsMap.get(decimal+1)
-
-                return@lazy roman
-            }
-            else -> {
-                var remaining = decimal
-                var roman = ""
-                symbolsMap.forEach { (arabic, symbol) ->
-                    while (remaining >= arabic) {
-                        roman += symbol
-                        remaining -= arabic
-                    }
-                }
-                return@lazy roman
+    private fun convert(decimal: Int): String {
+        var remaining = decimal
+        var roman = ""
+        symbolsMap.forEach { (arabic, symbol) ->
+            while (remaining >= arabic) {
+                roman += symbol
+                remaining -= arabic
             }
         }
+        return roman
     }
+
 
     override fun toString(): String {
         return value
