@@ -21,15 +21,12 @@ class Roman(decimal: Int) {
     private val value: String = convert(decimal)
 
     private fun convert(decimal: Int): String {
-        var remaining = decimal
-        var roman = ""
         symbolsMap.forEach { (arabic, symbol) ->
-            while (remaining >= arabic) {
-                roman += symbol
-                remaining -= arabic
+            if (decimal>= arabic) {
+                return symbol + convert(decimal - arabic)
             }
         }
-        return roman
+        return ""
     }
 
 
