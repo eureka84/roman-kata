@@ -38,6 +38,16 @@ class RomanSpec: StringSpec() {
             val roman = Roman(10)
             roman.toString() shouldBe "X"
         }
+
+        "should convert 4" {
+            val roman = Roman(4)
+            roman.toString() shouldBe "IV"
+        }
+
+        "should convert 9" {
+            val roman = Roman(9)
+            roman.toString() shouldBe "IX"
+        }
     }
 }
 
