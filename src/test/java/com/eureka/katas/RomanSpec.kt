@@ -8,6 +8,12 @@ import io.kotlintest.specs.StringSpec
  */
 class RomanSpec: StringSpec() {
     init {
+
+        "should convert 0 into an empty string" {
+            val roman = Roman(0)
+            roman.toString() shouldBe ""
+        }
+
         "should convert 1" {
             val roman = Roman(1)
             roman.toString() shouldBe "I"
