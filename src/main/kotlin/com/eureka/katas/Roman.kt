@@ -2,15 +2,18 @@ package com.eureka.katas
 
 class Roman(decimal: Int) {
 
-    private val symbols = listOf(Pair(1, "I"))
+    private val symbols = listOf(
+            10 to "X",
+            5 to "V",
+            1 to "I")
 
     private val value: String by lazy {
         var remaining = decimal
         var roman = ""
-        symbols.forEach { (asInt, asString) ->
-            while (remaining >= asInt) {
-                roman += asString
-                remaining -= asInt
+        symbols.forEach { (arabic, symbol) ->
+            while (remaining >= arabic) {
+                roman += symbol
+                remaining -= arabic
             }
         }
         return@lazy roman
