@@ -22,16 +22,12 @@ class Roman(decimal: Int) {
 
     private fun convert(decimal: Int): String {
         symbolsMap.forEach { (arabic, symbol) ->
-            if (decimal >= arabic) {
+            if (decimal >= arabic)
                 return symbol + convert(decimal - arabic)
-            }
         }
         return ""
     }
 
-
-    override fun toString(): String {
-        return value
-    }
+    override fun toString(): String = value
 
 }
